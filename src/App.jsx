@@ -12,12 +12,12 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <Heading>The Wild Oasis</Heading>
+        <Heading as="h1">The Wild Oasis</Heading>
         <Button onClick={() => alert("")}>Check in</Button>
         <Button onClick={() => alert("")}>Check out</Button>
-        <Heading type="h2">Check in and out</Heading>
+        <Heading as="h2">Check in and out</Heading>
         <Input type="number" placeholder="Number of guestes"></Input>
-        <Heading type="h3">Form</Heading>
+        <Heading as="h3">Form</Heading>
       </StyledApp>
     </>
   );
