@@ -14,11 +14,13 @@ const Button = styled.button`
   background-color: purple;
   color: white;
 `;
+
 function App() {
   return (
     <div>
       <H1>The Wild Oasis</H1>
-      <Button onClick={() => alert(")}>Check in</Button>
+      <Button onClick={() => alert("")}>Check in</Button>
+      <Button onClick={() => alert("")}>Check out</Button>
     </div>
   );
 }
