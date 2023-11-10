@@ -17,12 +17,20 @@ function App() {
           <Heading as="h1">The Wild Oasis</Heading>
           <div>
             <Heading as="h2">Check in and out</Heading>
-            <Button onClick={() => alert("")}>Check in</Button>
-            <Button onClick={() => alert("")}>Check out</Button>
+            <Button varitaion="primary" size="medium" onClick={() => alert("")}>
+              Check in
+            </Button>
+            <Button
+              varitaion="secondary"
+              size="small"
+              onClick={() => alert("")}
+            >
+              Check out
+            </Button>
           </div>
         </Row>
 
-        <Row type="vertical">
+        <Row>
           <Heading as="h3">Form</Heading>
           <Input type="number" placeholder="Number of guestes" />
           <Input type="number" placeholder="Number of guestes" />
