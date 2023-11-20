@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers";
+import { useMutation } from "@tanstack/react-query";
+import { deleteCabin } from "../../services/apiCabins";
 
 const TableRow = styled.div`
   display: grid;
@@ -40,7 +42,11 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 function CabinRow({ cabin }) {
-  const { name, maxCapacity, regularPrice, discount, image } = cabin;
+  const { id:cabinId,name, maxCapacity, regularPrice, discount, image } = cabin;
+
+ const {mutate,isLoading} useMutation({
+    mutationFn: (id) => deleteCabin(id),
+  });
   return (
     <TableRow>
       <Img src={image} />
