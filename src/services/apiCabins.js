@@ -35,5 +35,11 @@ export async function createCabin(newCabin) {
     throw new Error("cabins could not be created");
   }
 
+  //2.Uploading image
+  const { error:storageError } = await supabase
+  .storage
+  .from('cabin-images')
+  .upload(`${imageName}`, newCabin.image, {
+  })
   return data;
 }
