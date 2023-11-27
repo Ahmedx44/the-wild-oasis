@@ -51,7 +51,9 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function CreateCabinForm() {
+function CreateCabinForm({ cabinToEdit }) {
+  const { id: editId, ...editValues } = cabinToEdit;
+
   const { register, handleSubmit, getValues, formState, reset } = useForm();
   const queryClient = useQueryClient();
 
