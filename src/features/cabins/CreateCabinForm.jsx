@@ -53,7 +53,7 @@ const Error = styled.span`
   color: var(--color-red-700);
 `;
 
-function CreateCabinForm({ cabinToEdit = {} }) {
+function CreateCabinForm({ cabinToEdit = {},onCloseModal }) {
   //jonas said sometimes the value does not existed to by default we will make it empty object
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId); // if there is editID  make the varibale true if not make it false
@@ -77,12 +77,13 @@ function CreateCabinForm({ cabinToEdit = {} }) {
         { newCabinData: { ...data, image }, id: editId },
         { onSuccess: (data) => reset() }
       );
-    createCabin({ ...data, image: image }, { onSuccess: (data) => reset() });
+    createCabin({ ...data, image: image }, { onSuccess: (data) =>{ reset();
+    onCloseModal()} });
   }
 
   function onError(error) {}
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)} type={onCloseModal ?"modal":"regular"}>
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
@@ -158,7 +159,7 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
       <FormRow2>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button variation="secondary" type="reset" onClick={()=>onCloseModal?.()}>
           Cancel
         </Button>
         <Button disbaled={isCreating}>
