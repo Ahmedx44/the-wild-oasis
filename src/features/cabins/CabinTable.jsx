@@ -5,6 +5,7 @@ import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabins";
 import Table from "../../ui/Table";
+import Menu from "../../ui/Menus";
 
 
 
@@ -27,6 +28,7 @@ function CabinTable() {
 
   if (isLoading) return <Spinner />;
   return (
+    <Menu>
     <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
       <Table.Header role="row">
         <div></div>
@@ -41,6 +43,7 @@ function CabinTable() {
         <CabinRow cabin={cabin} key={cabin.id} />
       )}/>
     </Table>
+    </Menu>
   );
 }
 
